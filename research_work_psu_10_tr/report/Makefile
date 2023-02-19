@@ -1,10 +1,17 @@
+.PHONY: all clean-tmp clean
 
-draft:
-	pdflatex draft
-	bibtex draft
-	pdflatex draft
-	pdflatex draft
+
+all: report clean-tmp
+
+report:
+	pdflatex report
+	biber report
+	pdflatex report
+	pdflatex report
 
 clean-tmp:
-	rm *.aux *.bbl *.blg *.log *.toc *.dvi -f
+	rm *.aux *.bbl *.blg *.log *.toc *.dvi *-blx.bib *.bcf *.run.xml chapters/*.aux -f
+
+clean: clean-tmp
+	rm report.pdf -f
 
