@@ -126,3 +126,37 @@
 \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 % configure figure captions format
 \usepackage[figurename=Рисунок, labelsep=endash]{caption}
+
+
+% customize the environments for listings
+\usepackage{enumitem}
+\setlist[enumerate]{
+	wide,
+	align=left,
+	topsep = 0pt,
+	parsep = 0pt,
+	partopsep = 0pt,
+	itemsep = 0pt,
+	labelsep = 2ex,
+	itemindent = \parindent,
+	labelindent = \parindent,
+	labelwidth = 3ex,
+	label*=\arabic*.,
+	leftmargin=*,
+}
+
+\setlist[itemize]{
+	wide,
+	align=left,
+	topsep = 0pt,
+	parsep = 0pt,
+	partopsep = 0pt,
+	itemsep = 0pt,
+	labelsep = 2ex,
+	itemindent = \parindent,
+	labelindent = \parindent,
+	labelwidth = 3ex,
+	leftmargin=*,
+}
+\setlist[itemize,1]{label = $\bullet$}
+\setlist[itemize,2]{label = $\circ$}
