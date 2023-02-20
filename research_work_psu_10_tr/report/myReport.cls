@@ -1,17 +1,19 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{myReport}[2023/02/17]
 
-\LoadClass[12pt]{report} % set parent class
+\LoadClass[14pt]{extreport} % set parent class
 
 
 \newcommand{\bibliographytitle}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}	% set the name of chapter with a table of contents
 \newcommand{\toctitle}{СОДЕРЖАНИЕ}	% set the name of chapter with a table of contents
 
 
-
-\usepackage[T2A,T1]{fontenc}
+\usepackage{cmap}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
 \usepackage[english, russian]{babel}
 
+% \usepackage{mathptmx}
 
 % paper settings
 \usepackage{geometry}
@@ -22,6 +24,11 @@
 	top=20mm,	%
 	bottom=20mm,%
 }
+
+
+\usepackage{ragged2e}
+\hyphenchar\font=-1
+\sloppy
 
 
 % pragraph settings
@@ -101,6 +108,7 @@
 	style=gost-numeric, % стиль цитирования и библиографии
 	language=auto, % получение языка из babel
 	autolang=other, % многоязычная библиография
+	sorting=none,
 ]{biblatex}
 
 
@@ -138,12 +146,14 @@
 	partopsep = 0pt,
 	itemsep = 0pt,
 	labelsep = 2ex,
-	itemindent = \parindent,
+	itemindent = 0ex,
 	labelindent = \parindent,
 	labelwidth = 3ex,
 	label*=\arabic*.,
 	leftmargin=*,
 }
+\setlist[enumerate,2]{labelindent = 0pt}
+\setlist[enumerate,2]{labelindent = 0pt}
 
 \setlist[itemize]{
 	wide,
@@ -153,10 +163,13 @@
 	partopsep = 0pt,
 	itemsep = 0pt,
 	labelsep = 2ex,
-	itemindent = \parindent,
+	itemindent = 0ex,
 	labelindent = \parindent,
 	labelwidth = 3ex,
 	leftmargin=*,
 }
 \setlist[itemize,1]{label = $\bullet$}
 \setlist[itemize,2]{label = $\circ$}
+
+
+\usepackage{hyperref}
