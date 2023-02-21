@@ -1,1 +1,0 @@
-(Library)[https://github.com/almiluk/EEManager] is the result of the work.
