@@ -1,20 +1,22 @@
 .PHONY: all clean-tmp clean
 
 
-all: report clean-tmp count
+report: report-pdf clean-tmp count
+
+report-with-fonts: report-with-fonts-pdf clean-tmp count
 
 insert-fonts:
 	pdf2ps report.pdf
 	ps2pdf14 -dPDFSETTINGS=/prepress report.ps report.pdf
 	rm report.ps
 
-report:
+report-pdf:
 	pdflatex report
 	biber report
 	pdflatex report
 	pdflatex report
 
-report-with-fonts:
+report-with-fonts-pdf:
 	latex report
 	biber report
 	latex report
