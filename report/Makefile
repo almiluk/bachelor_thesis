@@ -11,7 +11,7 @@ insert-fonts:
 	rm report.ps
 
 report-pdf:
-	pdflatex report
+	pdflatex --shell-escape report.tex
 	biber report
 	pdflatex report
 	pdflatex report
@@ -30,6 +30,7 @@ report-with-fonts-pdf:
 
 clean-tmp:
 	rm *.aux *.bbl *.blg *.log *.toc *.dvi *-blx.bib *.bcf *.run.xml chapters/*.aux *.out *.ps -f
+	rm svg-inkscape -rf
 
 clean: clean-tmp
 	rm report.pdf -f
