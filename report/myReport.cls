@@ -114,7 +114,8 @@
 
 % figures settings
 \usepackage{graphicx}
-\graphicspath{ {./images/} } % the path to the directory with images
+\usepackage{svg}
+
 
 % the wrapper around \includegraphics command to format a figure
 % 1st param - the optional params for \includegraphics, optional
@@ -129,6 +130,21 @@
 		\label{#4}
 	\end{figure}
 }
+
+% the wrapper around \includesvg command to format a figure
+% 1st param - the optional params for \includesvg, optional
+% 2nd param - the name of the image file
+% 3rd param - the caption of the figure
+% 4th param - the label of the figure
+\newcommand{\mysvg}[4][ ]{
+	\begin{figure}[h]
+		\centering
+		\includesvg[#1]{#2}
+		\caption{#3}
+		\label{#4}
+	\end{figure}
+}
+
 
 % set figure numbers format
 \renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
