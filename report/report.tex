@@ -1,4 +1,5 @@
 \documentclass{myReport}
+\usepackage{pdfpages}
 
 \graphicspath{ {./resources/images/} } % the path to the directory with images
 
@@ -10,7 +11,9 @@
 \date{\the\year{}}
 
 \begin{document}
-\maketitle
+% \maketitle
+\includepdf[pages={1-1}]{title.pdf}
+
 \setcounter{page}{2}
 
 % TODO: include title page
