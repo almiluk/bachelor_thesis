@@ -131,7 +131,7 @@
 	\end{figure}
 }
 
-% the wrapper around \includesvg command to format a figure
+% the wrapper around \includesvg command to format an SVG figure
 % 1st param - the optional params for \includesvg, optional
 % 2nd param - the name of the image file
 % 3rd param - the caption of the figure
@@ -189,3 +189,10 @@
 
 
 \usepackage{hyperref}
+
+\usepackage{longtable}
+\newcommand*\subcaption[1]{ % Заголовок без "Таблица..." -- для заголовков на других стр.
+    \multicolumn{\LT@cols}{p{1\textwidth}}{#1}
+}
+
+\setcounter{page}{2}
