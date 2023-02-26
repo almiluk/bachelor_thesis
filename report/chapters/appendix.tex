@@ -1,1 +1,74 @@
-\chapter*{ПРИЛОЖЕНИЕ}
+\chapter*{ПРИЛОЖЕНИЕ А} \label{app:appendix-usage-example}
+
+\begin{center}
+    \bfseries Пример использования разработанной библиотеки
+\end{center}
+
+\begin{verbatim}
+    
+#include <EEManager.h>
+
+
+struct my_datatype {
+    uint8_t a = 1;
+    char[10] = { 0 };
+};
+
+void setup() {
+    Serial.begin(115200);
+
+    // Инициализация библиотеки
+    EEMemManager::init();
+    // Получение разделов
+    MemPart part1 = EEMemManager::GetMemPart("part1");
+    MemPart part2 = EEMemManager::GetMemPart("part2");
+
+    // Получение переменной
+    // Вывод порядкового номера запуска
+    bool created;
+    int loads_num = 1;
+    EEPROMVar loads_num_var = part1.getVar("loads_num", &loads_num, &created);
+    Serial.print("Load #");
+    Serial.println(loads_num);
+    if (created)
+        Serial.println("First run. Counter was created in EEPROM.");
+    else
+        Serial.println("Not first run. Counter was found in EEPROM.");
+
+    // Обновление порядкового номера запуска
+    loads_num++;
+    loads_num_var.updateNow();
+
+    // Получение переменной сложного типа
+    my_datatype my_var;
+    EEPROMVar next_load_num_var = part1.getVar("testVar", &my_var);
+
+    // Получение переменной с таким же именем, но из другого раздела
+    int x = 4;
+    EEPROMVar x_var = part2.getVar("testVar", &x);
+    Serial.print("x ");
+    Serial.println(x);
+
+    x++;
+    x_var.update();
+
+    while (!x_var.tick()){
+        Serial.println("Waiting...");
+        delay(1);
+    }
+    Serial.println("Variable has been updated");
+
+    // Чтение нового значения в другую переменную (локальная переменная x, в любом случае изменилась).
+    int y;
+    EEPROMVar x_var = part2.getVar("testVar", &y);
+    Serial.print("New value: ");
+    Serial.println(y);
+}
+
+void loop() {
+    
+
+}
+    
+\end{verbatim}
+
