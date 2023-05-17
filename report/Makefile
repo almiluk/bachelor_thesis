@@ -1,7 +1,7 @@
 .PHONY: all clean-tmp clean
 
 
-report: report-pdf clean-tmp count
+report: title report-pdf clean-tmp count
 
 report-with-fonts: report-with-fonts-pdf clean-tmp count
 
@@ -26,6 +26,9 @@ report-with-fonts-pdf:
 	dvips report
 	# ps2pdf -dPDFSETTINGS=/prepress report.ps
 	ps2pdf report.ps
+
+title:
+	soffice --headless --convert-to pdf title.DOCX 
 
 
 clean-tmp:
