@@ -195,4 +195,21 @@
     \multicolumn{\LT@cols}{p{1\textwidth}}{#1}
 }
 
+\usepackage{courier}
+
+\usepackage{listings}
+\lstset
+{ %Formatting for code
+	basicstyle=\footnotesize\ttfamil,
+    language=C++,
+    basicstyle=\footnotesize,
+    numbers=left,
+    stepnumber=1,
+    showstringspaces=false,
+    tabsize=4,
+    breaklines=true,
+    breakatwhitespace=false,
+	xleftmargin=15pt,
+}
+
 \setcounter{page}{2}
