@@ -1,1 +1,25 @@
-<mxfile host="www.diagrameditor.com" modified="2023-02-26T20:17:17.427Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.114 YaBrowser/22.9.1.1110 (beta) Yowser/2.5 Safari/537.36" etag="bA8QNDcEKeHBsVH6MrCj" version="12.1.3" pages="1"><diagram id="DedFYuknbq_vAPVtTDtG" name="Page-1">7Vldc9o6EP01zPRmJnfwByZ5DIa2D3BvmqSfLx3FErYaWWJkEaC/vitbwnZtaJjitpPyhHe1kqU9R3sk0/PCdP1KokUyE5iwntvH65437rmu4ww9+NGeTeEZOH7hiCXFJqh03NKvxDj7xrukmGS1QCUEU3RRd0aCcxKpmg9JKVb1sLlg9bcuUEwajtsIsab3PcUqKbwX7rD0vyY0TuybneCyaEmRDTYryRKExari8iY9L5RCqOIpXYeE6eTZvBT9Xu5o3U5MEq6e0uFz4E4fbibhx/WnN5/wuzf47eP5uecWwzwitjQrnkyub/6fvUPSTFttbC6yFU0Z4mCN5oKrW9PigI0YjTk8RzAZIsHxSKSikMYr06DEArxRQhmeoo1Y6ilnCkUP1holQtKvMCxiZkxolsowwg1qEbe6J7j74JUkg5hrmwfnO9cMrWuBU5Qp44gEY2iR0fvtMlIkY8pHQimRmiCTH1gOWe/MvLPFEzYCESlRcgMhpoNvGLCpm6uST27fsCapcskyBxkOx9uRS5jhwSB9COpeA/UG2IzmQGdKioct9XWO5pSxUDABKI+5yIMs+ozMVQv2KcWY5YMtUER5fKe5MD53Ss807zj2Ss+NyYN2SaGQQgVKGhKG7gm7FhlVVOjxZRE7WgjKVZ6rwag3GOceqULBYRGI5lgRQH9FNAOeBuyeTdOE2+ALXH0Svhddoeu3oAvL7S8XGCnyn1i9+KfnXekIAQPp6XpOQfVRL3R7VyZwTxQUYRo92IB7KMhtw8RE3dGUwPa2kUtAwQk+q8ZwWRlaxsBLcld1HvnADbIChGpL1u/IeThfi1pVp6bfpKZ2Ceg7Z3lZT4DlhLfQtU7LEcw+7P870AR1Q7Cd0v59nLWc+SFng65IO2iQdkZSKOHqJENHkiHPuazp0LBFh4J+E/OgMxkKTjL0M1t6cLAMtcHbmQwNd8gQyAKcLl9wlJKisEcJkme2sof6sgB5Lpruzkzxr5xKK9JxkoHjcqZNBto443YmAxct9xEQghnicNM6XUmOpQXBoK4FQYsWOG3635kWXJ604Gf29cXBWtAKb0fo2itvQwsop2rPNSIXC3MOtIKRq4XpsuuI+LcIQbXm+Z2xp00V2tjjd6UKvtNAmOCY2JUbFKVYckywyTJkLRGx4IhNRb659d7+QpTamPqNlkroCq5SW93JmqoPprt+/qifAYnCGq8rTeONNTgs8IMdQBuVXtosu+WW7ZcryZX+QAkOTFEqOL5LKLdNLynbTotjG2hWCh7Tvh3KLMop3ourZpE7nbD9YgH5FUsZkSec6eCNsDH3BfrtjJKEIUUf6zM5Pl+a2vEX8aWND3sJ1B1fbN3/MV+Gv5Uvze+hzYpjNKWCf35621nYde3WnMlMag/UGXMi8Y909+/Xz3uXbd+gW875XR33/OY3yrPnlXHX/8My3vzA9sw4HvxpGW9+3npmHB8Mf1XGwSz/Kc3bKv83e5Nv</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2023-05-20T13:54:27.621Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.114 YaBrowser/22.9.1.1110 (beta) Yowser/2.5 Safari/537.36" etag="SZijJLnkBmw_3FAtYy0-" version="21.2.9" type="device">
+  <diagram id="DedFYuknbq_vAPVtTDtG" name="Page-1">
+    <mxGraphModel dx="42" dy="473" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="x5uXmW15WvEP2qOI-JBr-44" value="EEPROMVar" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="880" y="40" width="390" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="x5uXmW15WvEP2qOI-JBr-45" value="- dataAddr: uint16_t&#xa;- data: T" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0" vertex="1" parent="x5uXmW15WvEP2qOI-JBr-44">
+          <mxGeometry y="26" width="390" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="x5uXmW15WvEP2qOI-JBr-46" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="x5uXmW15WvEP2qOI-JBr-44">
+          <mxGeometry y="60" width="390" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="x5uXmW15WvEP2qOI-JBr-47" value="+ EEPROMVar&lt;T&gt;(path:const char*, default_value: T)&#xa;+ Update(T new_value): void&#xa;+ Update(): void&#xa;+ UpdateNow(T new_value): void&#xa;+ UpdateNow(): void&#xa;+ Data(): T&amp;&#xa;+ operator=(new_value: const T): EEPROMVar&lt;T&gt;&amp;&#xa;+ operator T&amp;(): T&amp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="x5uXmW15WvEP2qOI-JBr-44">
+          <mxGeometry y="68" width="390" height="132" as="geometry" />
+        </mxCell>
+        <mxCell id="x5uXmW15WvEP2qOI-JBr-48" value="T" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1253.5" y="30" width="31" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
