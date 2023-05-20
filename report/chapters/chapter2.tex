@@ -78,6 +78,8 @@ Arduino IDE автоматически создаёт константы, опи
 Пользователю для использования должен быть доступен всего один класс EEPROMVar, описывающий EEPROM-переменную, его структура показана на рисунке \ref{fig:inerface-class-diagram}.
 Данный класс является шаблонным, и его параметр типа определяет тип хранящихся пользовательских данных.
 
+\mysvg[inkscapelatex=false,width=\columnwidth]{interface-cd}{Структура доступного пользовалю класса}{fig:inerface-class-diagram}
+
 Этот класс имеет следующие методы
 \begin{enumerate}
 	\item Конструктор. Он принимает в качестве аргументов имя переменной и её значение по умолчание.
@@ -101,6 +103,18 @@ Arduino IDE автоматически создаёт константы, опи
 \lstinputlisting[language=C++]{resources/code_listings/EEPROManager-var-example.cpp}
 
 ОБЪЯСНЕНИЕ ПРИМЕРА ИСПОЛЬЗОВАНИЯ
+
+\subsection{Класс менеджера EEPROM}
+
+\subsection{Хранение и поиск переменных в EEPROM}
+
+\subsection{Класс для чтения и записи данных}
+
+\section{Реализация библиотеки}
+
+Итоговая диаграмма классов разрабатываемой библиотеки представлена ниже на рисунке \ref{fig:class-diagram}.
+
+\myfigure[width=\columnwidth]{class-diagram}{Диграмма классов библиотеки}{fig:class-diagram}
 
 
 \iffalse
