@@ -82,14 +82,12 @@ Arduino IDE автоматически создаёт константы, опи
 
 По итогам разработки структуры библиотеки была создана её диаграмма классов представленная на рисунке \ref{fig:class-diagram}.
 
-\myfigure[width=\columnwidth]{class-diagram}{Диграмма классов библиотеки}{fig:class-diagram}
+\myfigure[width=0.7\columnwidth]{class-diagram}{Диграмма классов библиотеки}{fig:class-diagram}
 
 \subsection{Внешний интерфейс библиотеки. Класс EEPROM-переменной}
 
 Пользователю для использования должен быть доступен всего один класс EEPROMVar, описывающий EEPROM-переменную.
 Данный класс является шаблонным, и его параметр типа определяет тип хранящихся пользовательских данных.
-
-\mysvg[inkscapelatex=false,width=\columnwidth]{interface-cd}{Структура доступного пользовалю класса}{fig:inerface-class-diagram}
 
 Этот класс имеет следующие методы
 \begin{enumerate}
@@ -182,7 +180,7 @@ EEPROManager не используется пользователем напря
 В соответствии с описанием структуры VariableInfo, в EEPROM данный о каждой переменной хранятся в виде, представленном в таблице \ref{tab:eeprom-var}.
 
 \begin{center}
-	\begin{longtable}{|p{0.2\columnwidth}|p{0.1\columnwidth}|p{0.1\columnwidth}|p{0.4\columnwidth}|}
+	\begin{longtable}{|p{0.15\columnwidth}|p{0.15\columnwidth}|p{0.17\columnwidth}|p{0.45\columnwidth}|}
 		\caption{ \raggedright Мета-данные EEPROM-переменной}
 		\label{tab:eeprom-var}
 		\\ \hline
