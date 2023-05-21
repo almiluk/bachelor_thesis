@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{myReport}[2023/02/17]
 
-\LoadClass[14pt]{extreport} % set parent class
+\LoadClass[12pt]{extreport} % set parent class
 
 
 \newcommand{\bibliographytitle}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}	% set the name of chapter with a table of contents
