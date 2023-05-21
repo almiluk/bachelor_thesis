@@ -1,71 +1,158 @@
-\chapter*{ПРИЛОЖЕНИЕ А} \label{app:appendix-usage-example}
+\chapter*{ПРИЛОЖЕНИЕ А} \label{app:appendix-eeprom-usage-example}
 
 \begin{center}
-    \bfseries Пример использования разработанной библиотеки
+    \bfseries Пример использования разработанной библиотеки менеджера EEPROM
 \end{center}
 
 \begin{verbatim}
-    
-#include <EEManager.h>
+#include <EEPROMVariable.h>
 
-
-struct my_datatype {
-    uint8_t a = 1;
-    char[10] = { 0 };
-};
 
 void setup() {
     Serial.begin(115200);
 
-    // Инициализация библиотеки
-    EEMemManager::init();
-    // Получение разделов
-    MemPart part1 = EEMemManager::GetMemPart("part1");
-    MemPart part2 = EEMemManager::GetMemPart("part2");
+    EEPROMVar<uint16_t> boot_cnt("boot_cnt", 1);
 
-    // Получение переменной
-    // Вывод порядкового номера запуска
-    bool created;
-    int loads_num = 1;
-    EEPROMVar loads_num_var = part1.getVar("loads_num", &loads_num, &created);
-    Serial.print("Load #");
-    Serial.println(loads_num);
-    if (created)
-        Serial.println("First run. Counter was created in EEPROM.");
-    else
-        Serial.println("Not first run. Counter was found in EEPROM.");
+    Serial.println(boot_cnt);
 
-    // Обновление порядкового номера запуска
-    loads_num++;
-    loads_num_var.updateNow();
-
-    // Получение переменной сложного типа
-    my_datatype my_var;
-    EEPROMVar next_load_num_var = part1.getVar("testVar", &my_var);
-
-    // Получение переменной с таким же именем, но из другого раздела
-    int x = 4;
-    EEPROMVar x_var = part2.getVar("testVar", &x);
-    Serial.print("x ");
-    Serial.println(x);
-
-    x++;
-    x_var.update();
-
-    while (!x_var.tick()){
-        Serial.println("Waiting...");
-        delay(1);
-    }
-    Serial.println("Variable has been updated");
-
-    // Чтение нового значения в другую переменную (локальная переменная x, в любом случае изменилась).
-    int y;
-    EEPROMVar x_var = part2.getVar("testVar", &y);
-    Serial.print("New value: ");
-    Serial.println(y);
+    boot_cnt = boot_cnt + 1;
 }
 
 void loop() {
 
 }
 \end{verbatim}
+
+
+\chapter*{ПРИЛОЖЕНИЕ Б} \label{app:appendix-ssdp-usage-example}
+
+\begin{center}
+    \bfseries Пример использования разработанной реализации протокола SSDP
+\end{center}
+
+\begin{verbatim}
+#include <ESP8266WebServer.h>
+#include <ESP8266WiFi.h>
+#define NO_GLOBAL_SSDP
+#include <almilukESP8266SSDP.h>
+
+#define NETNAME "SSID"
+#define PASSWORD "PASSWORD"
+
+class mySSDPClass : public SSDPClass {
+public:
+	int response_cnt = 0;
+
+	mySSDPClass() {
+		setManufacturer("almiluk");
+		setManufacturerURL("https://github.com/almiluk");
+		setModelName("almilukESP8266SSDP_test");
+		setDeviceType("almiluk-domain", "esp8266-ssdp-test", "1.0");
+		SSDPServiceType services[] = {
+			{"almiluk-domain", "service1", "v1"},
+			{"some-other-domain", "service1", "1.1.0"},
+			{"some-other-domain", "service2", "abcd"}
+		};
+		setServiceTypes(services, 3);
+		// You can set all combinations of attributes you want.
+	}
+
+protected:
+
+	void on_response() {
+		Serial.print("Sending SSDP response for target: ");
+		Serial.println(getAdvertisementTarget());
+		addHeader("resp_header", "resp_header_val");
+		response_cnt++;
+	}
+
+	void on_notify_alive() {
+		Serial.print("Sending SSDP alive notification for target: ");
+		Serial.println(getAdvertisementTarget());
+		addHeader("alive_header", "alive_header_val");
+	}
+
+	void on_notify_bb() {
+		Serial.print("Sending SSDP byebye notification for target: ");
+		Serial.println(getAdvertisementTarget());
+		addHeader("byebye_header", "byebye_header_val");
+	}
+};
+
+mySSDPClass g_ssdp;
+ESP8266WebServer g_webServer(80);
+
+void setup() {
+	Serial.begin(115200);
+
+	WiFi.mode(WIFI_STA);
+	WiFi.begin(NETNAME, PASSWORD);
+	Serial.print("Waiting for WiFi connection");
+	while (!WiFi.localIP().isSet()) {
+		Serial.print('.');
+		delay(500);
+	}
+	Serial.println("\nConnected to WiFi");
+
+	if (g_ssdp.begin())
+		Serial.println("SSDP begun");
+	else
+		Serial.println("SSDP init failed");
+
+	g_webServer.on("/ssdp/schema.xml", []() {
+		g_ssdp.schema(g_webServer.client());
+		});
+	g_webServer.begin();
+
+	Serial.println("Web server started");
+}
+
+void loop() {
+	if (g_ssdp.response_cnt == 9) {
+		delay(10000);
+		g_ssdp.end();
+		g_ssdp.response_cnt++;
+	} 
+	g_ssdp.loop();
+	g_webServer.handleClient();
+	delay(16);
+}
+\end{verbatim}
+
+
+\chapter*{ПРИЛОЖЕНИЕ В} \label{app:appendix-search-func}
+
+\begin{center}
+    \bfseries Функция поиска устройств и сервисов
+\end{center}
+
+\begin{verbatim}
+def get_ssdp_list(st_val: str = "ssdp:all", timeout: int = 3):
+    SSDP_ADDR = "239.255.255.250";
+    SSDP_PORT = 1900;
+    SSDP_MX = timeout;
+
+    ssdpRequest = ("M-SEARCH * HTTP/1.1\r\n"
+                    + "HOST: %s:%d\r\n" % (SSDP_ADDR, SSDP_PORT)
+                    + "MAN: \"ssdp:discover\"\r\n"
+                    + "MX: %d\r\n" % (SSDP_MX, )
+                    + "ST: %s\r\n" % (st_val, ) + "\r\n")
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+    sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 5)
+    sock.bind(('', 19011))
+
+    sock.settimeout(timeout * 1.1)
+    sock.sendto(ssdpRequest.encode(), (SSDP_ADDR, SSDP_PORT))
+    ip_set = set()
+    while True:
+        try:
+            data, addr = sock.recvfrom(10240)
+            print(data.decode())
+        except socket.timeout:
+            break
+        ip_set.add(addr[0])
+    sock.close()
+    return list(ip_set)
+
+\end{verbatim}
+
