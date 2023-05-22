@@ -1,6 +1,9 @@
 .PHONY: all clean-tmp clean
 
 
+report-signed: title-signed report-pdf clean-tmp count
+	mv report.pdf 'Лукьянов А. ПМИ-2 ВКР.pdf'
+
 report: title report-pdf clean-tmp count
 
 report-with-fonts: report-with-fonts-pdf clean-tmp count
@@ -28,7 +31,11 @@ report-with-fonts-pdf:
 	ps2pdf report.ps
 
 title:
-	soffice --headless --convert-to pdf title.DOCX 
+	soffice --headless --convert-to pdf title.docx
+
+title-signed:
+	soffice --headless --convert-to pdf title.signed.docx 
+	mv title.signed.pdf title.pdf
 
 
 clean-tmp:
