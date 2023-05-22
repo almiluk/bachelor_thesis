@@ -102,9 +102,11 @@
 % table of contents settings
 \addto\captionsrussian{\def\contentsname{\toctitle}} % manuals add ToC chapter to ToC
 
-
+\bibliographystyle{gost-numeric.bbx}
 % bibliography list settings
 \usepackage[
+	parentracker=true,
+	defernumbers=true,
 	style=gost-numeric, % стиль цитирования и библиографии
 	language=auto, % получение языка из babel
 	autolang=other, % многоязычная библиография
