@@ -1,10 +1,10 @@
 .PHONY: all clean-tmp clean
 
 
+report: title report-pdf clean-tmp count
+
 report-signed: title-signed report-pdf clean-tmp count
 	mv report.pdf 'Лукьянов А. ПМИ-2 ВКР.pdf'
-
-report: title report-pdf clean-tmp count
 
 report-with-fonts: report-with-fonts-pdf clean-tmp count
 
