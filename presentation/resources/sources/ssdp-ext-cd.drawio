@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net" modified="2023-05-23T14:14:24.297Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 YaBrowser/23.3.4.603 Yowser/2.5 Safari/537.36" etag="qcdElF8hSC3NjOVYe8Hw" version="21.3.2" type="device">
+  <diagram name="Страница 1" id="-fpAULVeUP7WLLrvaeqz">
+    <mxGraphModel dx="1195" dy="639" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="x58y9OXBq2GKvpT4n7jy-5" value="BaseSSDPClass" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="330" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="x58y9OXBq2GKvpT4n7jy-7" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="x58y9OXBq2GKvpT4n7jy-5">
+          <mxGeometry y="26" width="330" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="x58y9OXBq2GKvpT4n7jy-8" value="# virtual on_response(): void&lt;br&gt;# virtual on_notify_alive(): void&lt;br&gt;# virtual&amp;nbsp;on_notify_bb(): void&lt;br&gt;# addHeader(const char* name, const char* value): void&lt;br&gt;# getAdvertisementTarget(): TargetId&lt;br&gt;- sendSSDPMessage(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="x58y9OXBq2GKvpT4n7jy-5">
+          <mxGeometry y="34" width="330" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="x58y9OXBq2GKvpT4n7jy-9" value="CustomSSDPClass" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="414" y="60" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="x58y9OXBq2GKvpT4n7jy-10" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="x58y9OXBq2GKvpT4n7jy-9">
+          <mxGeometry y="26" width="180" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="x58y9OXBq2GKvpT4n7jy-11" value="# virtual on_response(): void&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;# virtual on_notify_alive(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="x58y9OXBq2GKvpT4n7jy-9">
+          <mxGeometry y="34" width="180" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="x58y9OXBq2GKvpT4n7jy-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endSize=12;endArrow=block;endFill=0;" edge="1" parent="1" source="x58y9OXBq2GKvpT4n7jy-11" target="x58y9OXBq2GKvpT4n7jy-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
