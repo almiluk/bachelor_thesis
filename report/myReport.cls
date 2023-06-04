@@ -5,7 +5,7 @@
 
 
 \newcommand{\bibliographytitle}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}	% set the name of chapter with a table of contents
-\newcommand{\toctitle}{СОДЕРЖАНИЕ}	% set the name of chapter with a table of contents
+\renewcommand*\contentsname{СОДЕРЖАНИЕ}	% set the title of the table of contents
 
 
 \usepackage{cmap}
