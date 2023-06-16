@@ -100,7 +100,7 @@
 
 
 % table of contents settings
-\addto\captionsrussian{\def\contentsname{\toctitle}} % manuals add ToC chapter to ToC
+% \addto\captionsrussian{\def\contentsname{\toctitle}} % manuals add ToC chapter to ToC
 
 \bibliographystyle{gost-numeric.bbx}
 % bibliography list settings
