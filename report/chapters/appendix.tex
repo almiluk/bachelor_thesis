@@ -1,8 +1,4 @@
-\chapter*{ПРИЛОЖЕНИЕ А} \label{appendix:eeprom-usage-example}
-
-\begin{center}
-    \bfseries Пример использования разработанной библиотеки менеджера EEPROM
-\end{center}
+\chapter{Пример использования разработанной библиотеки менеджера EEPROM} \label{appendix:eeprom-usage-example}
 
 \begin{verbatim}
 #include <EEPROMVariable.h>
@@ -24,11 +20,8 @@ void loop() {
 \end{verbatim}
 
 
-\chapter*{ПРИЛОЖЕНИЕ Б} \label{appendix:ssdp-usage-example}
+\chapter{Пример использования разработанной реализации протокола SSDP} \label{appendix:ssdp-usage-example}
 
-\begin{center}
-    \bfseries Пример использования разработанной реализации протокола SSDP
-\end{center}
 
 \begin{verbatim}
 #include <ESP8266WebServer.h>
@@ -106,13 +99,8 @@ void setup() {
 
 	Serial.println("Web server started");
 }
-
-void loop() {
-	if (g_ssdp.response_cnt == 9) {
-		delay(10000);
-		g_ssdp.end();
-		g_ssdp.response_cnt++;
-	} 
+грамота
+	}
 	g_ssdp.loop();
 	g_webServer.handleClient();
 	delay(16);
@@ -120,11 +108,7 @@ void loop() {
 \end{verbatim}
 
 
-\chapter*{ПРИЛОЖЕНИЕ В} \label{appendix:search-func}
-
-\begin{center}
-    \bfseries Функция поиска устройств и сервисов
-\end{center}
+\chapter{Функция поиска устройств и сервисов} \label{appendix:search-func}
 
 \begin{verbatim}
 def get_ssdp_list(st_val: str = "ssdp:all", timeout: int = 3):
@@ -156,3 +140,13 @@ def get_ssdp_list(st_val: str = "ssdp:all", timeout: int = 3):
 
 \end{verbatim}
 
+
+\chapter{Грамота за выступление с докладом "`Разработка онтологически управляемого протокола сетевой самоидентификации устройств интернета вещей"'}
+
+\includegraphics[width=0.9\columnwidth]{certificate1}
+% \myfigure[width=0.8\columnwidth]{certificate1}{Грамота за выступление с докладом "`Разработка онтологически управляемого протокола сетевой самоидентификации устройств интернета вещей"'}{fig:certificate1}
+
+\chapter{Грамота за выступление с докладом "`Разработка средств автоматизации программирования устройств Интернета вещей на базе платформы SciVi"'}
+
+\includegraphics[width=0.9\columnwidth]{certificate2}
+% \myfigure[width=0.8\columnwidth]{certificate1}{Грамота за выступление с докладом "`Разработка средств автоматизации программирования устройств Интернета вещей на базе платформы SciVi"'}{fig:certificate2}

@@ -16,8 +16,8 @@ insert-fonts:
 report-pdf:
 	pdflatex --shell-escape report.tex
 	biber report
-	pdflatex report
-	pdflatex report
+	pdflatex -interaction=batchmode report
+	pdflatex -interaction=batchmode report
 
 report-with-fonts-pdf:
 	latex report
@@ -34,7 +34,7 @@ title:
 	soffice --headless --convert-to pdf title.docx
 
 title-signed:
-	soffice --headless --convert-to pdf title.signed.docx 
+	soffice --headless --convert-to pdf title.signed.docx
 	mv title.signed.pdf title.pdf
 
 

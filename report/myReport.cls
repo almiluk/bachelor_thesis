@@ -5,7 +5,7 @@
 
 
 \newcommand{\bibliographytitle}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}	% set the name of chapter with a table of contents
-\renewcommand*\contentsname{СОДЕРЖАНИЕ}	% set the title of the table of contents
+\newcommand{\toctitle}{СОДЕРЖАНИЕ}	% set the title of the table of contents
 
 
 \usepackage{cmap}
@@ -43,13 +43,13 @@
 
 
 % headers settings
-\usepackage[explicit]{titlesec} % "explicit" to be able to use #1 in format declarations
+\usepackage[explicit, toctitles]{titlesec} % "explicit" to be able to use #1 in format declarations
 % chapter headers settings
 \titleformat
 	{\chapter}
 	[hang]				% shape, to write chapter marker and title in one line and text in the next one.
 	{\bfseries\large}	% style
-	{\ \thechapter}	% chapter marker
+	{\thechapter}	% chapter marker
 	{1ex}				% space between a chapter marker and its title
 	{#1}				% code before inserting a chapter title, inserts chapter title from \chapter command parameter
 \titlespacing*
@@ -75,7 +75,7 @@
 	{\section}
 	[hang]
 	{\bfseries\normalsize}
-	{\ \thesection}
+	{\thesection}
 	{1ex}
 	{#1}
 \titlespacing*
@@ -89,7 +89,7 @@
 	{\subsection}
 	[hang]
 	{\bfseries\normalsize}
-	{\ \thesubsection}
+	{\thesubsection}
 	{1ex}
 	{#1}
 \titlespacing*
@@ -101,6 +101,7 @@
 
 % table of contents settings
 \addto\captionsrussian{\def\contentsname{\toctitle}} % manuals add ToC chapter to ToC
+
 
 \bibliographystyle{gost-numeric.bbx}
 % bibliography list settings
@@ -215,3 +216,52 @@
 }
 
 \setcounter{page}{2}
+
+
+\newcounter{oldtocdepth}
+
+\newcommand{\hidefromtoc}{
+  \setcounter{oldtocdepth}{\value{tocdepth}}
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{-10}}
+}
+
+\newcommand{\unhidefromtoc}{
+  \addtocontents{toc}{\protect\setcounter{tocdepth}{\value{oldtocdepth}}}
+}
+
+
+% костыль для правильного форматирования заголовков приложений
+\usepackage{titletoc}
+\newcommand{\myappendix}{
+	\appendix
+	\renewcommand\thechapter{\Asbuk{chapter}} % нумеровать арабскими цифрами
+	\renewcommand{\thefigure}{\Asbuk{chapter}.\arabic{figure}}
+
+	% форамт заголовков приложений
+	\titleformat
+		{\chapter}
+		[display]						% shape, to write chapter marker and title in one line and text in the next one.
+		{\bfseries\large\centering}		% style
+		{ПРИЛОЖЕНИЕ \thechapter}	% chapter marker
+		{1ex}							% space between a chapter marker and its title
+		{##1}							% code before inserting a chapter title, inserts chapter title from \chapter command parameter
+
+	% отступ после заголовка приложения
+	\titlespacing*
+		{\chapter}
+		{\parindent}	% indent before chapter marker
+		{0pt}			% top margin from the chapter title
+		{2.5ex}			% bottom margin from the chapter title
+
+
+	% добавить "ПРИЛОЖЕНИЕ" в оглавление
+	\titlecontents{chapter}% <section-type>
+		[0pt]% <left>
+		{\bfseries}% <above-code>
+		{ПРИЛОЖЕНИЕ \thecontentslabel.\quad}% <numbered-entry-format>
+		{}% <numberless-entry-format>
+		{\hfill\contentspage}% <filler-page-format>
+}
+
+
+%\usepackage{appendixnumberbeamer} % не считать номера страниц после команды \appendix
