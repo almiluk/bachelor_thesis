@@ -198,21 +198,26 @@
     \multicolumn{\LT@cols}{p{1\textwidth}}{#1}
 }
 
+
+% настройка форматирования листингов кода
 \usepackage{courier}
 
 \usepackage{listings}
 \lstset
 { %Formatting for code
-	basicstyle=\footnotesize\ttfamil,
-    language=C++,
-    basicstyle=\footnotesize,
+	language={[ISO]C++},
     numbers=left,
+	numberstyle=\fontsize{12pt}{14pt}\selectfont\color{gray},
+	basicstyle=\fontsize{12pt}{14pt}\selectfont\ttfamily,
     stepnumber=1,
+	frame=leftline,
     showstringspaces=false,
+	rulecolor=\color{black},
+	stringstyle=\color{orange},
     tabsize=4,
     breaklines=true,
     breakatwhitespace=false,
-	xleftmargin=15pt,
+	xleftmargin=25pt,
 }
 
 \setcounter{page}{2}
