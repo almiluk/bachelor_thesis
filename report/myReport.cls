@@ -129,7 +129,7 @@
 	\begin{figure}[h]
 		\centering
 		\includegraphics[#1]{#2}
-		\caption{#3}
+		\caption{\centering #3}
 		\label{#4}
 	\end{figure}
 }
@@ -143,7 +143,7 @@
 	\begin{figure}[h]
 		\centering
 		\includesvg[#1]{#2}
-		\caption{#3}
+		\caption{\centering #3}
 		\label{#4}
 	\end{figure}
 }
