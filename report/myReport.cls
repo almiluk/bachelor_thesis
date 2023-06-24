@@ -112,7 +112,9 @@
 	language=auto, % получение языка из babel
 	autolang=other, % многоязычная библиография
 	sorting=none,
+	movenames=false, % не перемещать имена авторов, если их больше 3-х
 ]{biblatex}
+\renewcommand*{\mkgostheading}[1]{#1} % убирать курсив с авторов
 
 
 % figures settings
@@ -218,6 +220,7 @@
     breaklines=true,
     breakatwhitespace=false,
 	xleftmargin=25pt,
+	texcl=true,
 }
 
 \setcounter{page}{2}
@@ -270,3 +273,5 @@
 
 
 %\usepackage{appendixnumberbeamer} % не считать номера страниц после команды \appendix
+
+\newcommand*{\thead}[1]{\multicolumn{1}{|c|}{\bfseries #1}}
